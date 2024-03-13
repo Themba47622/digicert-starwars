@@ -16,7 +16,6 @@ public class MyStepdefsUI {
     @Given("I am on the Star Wars films landing page")
     public void iAmOnTheStarWarsFilmsLandingPage() {
         driver.get("http://localhost:3000/");
-        //todo possible read the above from property file
     }
 
     @When("I sort movies by the Title")
