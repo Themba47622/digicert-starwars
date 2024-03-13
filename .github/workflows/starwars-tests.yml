@@ -1,0 +1,33 @@
+name: Star Wars Films Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: maven
+
+      - uses: browser-actions/setup-chrome@latest
+      - run: chrome --version
+
+      - name: Build with Maven
+        run: mvn clean verify
+
+      - name: artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Starwars-Reports
+          path: target/cucumber-reports
