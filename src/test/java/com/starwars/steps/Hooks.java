@@ -14,11 +14,12 @@ public class Hooks {
     @Before("@sanity-ui")
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
+       /* ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--headless");
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);*/
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().window().setSize(new Dimension(1400, 1000));
     }
